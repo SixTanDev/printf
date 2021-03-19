@@ -14,6 +14,25 @@
 
 #define SIZE_BUFER 2
 
+
+/*
+ * Macro.
+ */
+
+#define WRITE_TO_LEETER(format)\
+	{		       \
+	if (buffer->Pointer_Init == buffer->Pointer_End)	\
+		Print(buffer);					\
+								\
+        *(buffer->Pointer_Init) = *((*format)++);		\
+        *(++buffer->Pointer_Init) = '\0';			\
+        (buffer->Length)++;					\
+								\
+        if (buffer->Pointer_Init == buffer->Pointer_End)	\
+		Print(buffer);					\
+	}							\
+
+
 /*
  * Structure 1:
  */
@@ -38,6 +57,18 @@ typedef struct Write_ {
         void (*Print)(Buffer *);
 
 }Write;
+
+/*
+ * Structure Number 3:
+ */
+
+typedef struct Flags_{
+
+	char *Number$;
+	char *Number;
+	char *Signal;
+
+}Flags;
 
 /*
  * Declaration of the function:
