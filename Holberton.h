@@ -56,6 +56,6 @@ void Write_Init
 (Write *write, void (*Function_Pointer_Write)(Buffer *, char **, int), void (*Function_Pointer_Print)(Buffer *));
 
 int _Printf
-(Write *write, Buffer *buffer, char *format, va_list List_Argument);
+(Write *write, Buffer *buffer, char **format, va_list List_Argument);
 
 #endif

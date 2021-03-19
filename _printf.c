@@ -2,19 +2,17 @@
 
 
 int _Printf
-(Write *write, Buffer *buffer, char *format, va_list List_Argument)
+(Write *write, Buffer *buffer, char **format, va_list List_Argument)
 {
-      if (!format && !(*format))
-      {
-	      ssize_t write(int fd, const void *buf, size_t count);
-	      write(1, "Entro", 5);
+	if (!(*format) || !(**format))
               return (buffer->Length_Total);
-      }
-      else
-      {
-              write->Write(buffer, &format, 0);
-              return (_Printf(write, buffer, format, List_Argument));
-      }
+	else
+	{
+		write->Write(buffer, format, 0);
+		(void)List_Argument;
+//              return (_Printf(write, buffer, format, List_Argument));
+		return 0;
+	}
 }
 
 int _printf(char *format, ...)
@@ -31,7 +29,7 @@ int _printf(char *format, ...)
         Buffer_Init(&buffer);
 
         va_start(Lista_Arguments, format);
-        _Printf(&write, &buffer, format, Lista_Arguments);
+        _Printf(&write, &buffer, &format, Lista_Arguments);
         va_end(Lista_Arguments);
 
 	write.Print(&buffer);
@@ -41,7 +39,7 @@ int _printf(char *format, ...)
 
 int main(void)
 {
-        char s[] = "Hol";
+        char s[] = "Hola como estas espero que muy bien :3";
         char *format = s;
 
         _printf(format);

@@ -4,7 +4,7 @@ void Print(Buffer *buffer);
 
 void WRITE(Buffer *buffer, char **format, int Length){
 
-	if ((!(**format)) || (**format != '%')){
+	if ((!(**format)) || (**format == '%')){
 		buffer->Length_Total += Length;
 	}else
 	{
