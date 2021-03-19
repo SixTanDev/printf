@@ -34,11 +34,11 @@ int _Printf
 			int Space = 0;
 
 			++(*format);
-			Space = Isspace(format, 0);
+			Space = Isspace(format, 0); /* verificamos si hay espacios entre el % y el Type=(c,d,i,s...)*/
 
-			if (!(**format))
+			if (!(**format) || (**format))
 			{
-				(*format) -= (++Space);
+				(*format) -= (++Space);   /* Regresa el format a apuntar al carater % */
 				WRITE_TO_LEETER(format);  /* Macro entontrada en Holberton.h*/
 
 			}
@@ -77,7 +77,7 @@ int _printf(char *format, ...)
 
 int main(void)
 {
-	char s[] = "Hola% ";
+	char s[] = "Hola% comoestas jajaj";
 	char *format = s;
 
 	_printf(format);
