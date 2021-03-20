@@ -28,7 +28,7 @@ void Print(Buffer *buffer){
 	if (buffer->Length)
 	{
 		if (buffer->Pointer_Init != buffer->Pointer_End)
-			write(1, buffer->Buffer, buffer->Length_Total);
+			write(1, buffer->Buffer, buffer->Length);
 		else
 			write(1, buffer->Buffer, SIZE_BUFER - 1);
 
