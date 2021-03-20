@@ -58,8 +58,20 @@ typedef struct Write_ {
 
 }Write;
 
+
 /*
- * Structure Number 3:
+ * Estructura Number 3:
+ */
+
+typedef struct to_funct {
+
+	char *Type;
+	void (*Pointer_Function)(Write *, Buffer *, va_list);
+
+}To_Funct;
+
+/*
+ * Structure Number 4:
  */
 
 typedef struct Flags_{
@@ -88,5 +100,7 @@ void Write_Init
 
 int _Printf
 (Write *write, Buffer *buffer, char **format, va_list List_Argument);
+
+void Type(char *);
 
 #endif
