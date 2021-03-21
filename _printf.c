@@ -38,8 +38,8 @@ int _Printf
 
 			if (!(**format) || (**format))
 			{
-				(*format) -= (++Space);   /* Regresa el format a apuntar al carater % */
-				WRITE_TO_LEETER(format);  /* Macro entontrada en Holberton.h*/
+				(*format) -= (++Space);          /* Regresa el format a apuntar al carater % */
+				WRITE_TO_LEETER_FORMAT(format);  /* Macro entontrada en Holberton.h*/
 
 			}
 		}
@@ -57,10 +57,10 @@ int _printf(char *format, ...)
 {
 /* Inicializamos variables */
 
-	Buffer buffer;
+
 	Write write;
 	va_list Lista_Arguments;
-
+	Buffer buffer;
 /* Inicializamos las funciones de write y el Buffer */
 
 	Write_Init(&write, WRITE, Print);
@@ -72,12 +72,14 @@ int _printf(char *format, ...)
 
 	write.Print(&buffer);
 
+	printf("%d\n", buffer.Length);
+	printf("%d\n", buffer.Length_Total);
 	return (buffer.Length_Total);
 }
 
 int main(void)
 {
-	char s[] = "Hola% comoestas jajaj";
+	char s[] = "Hola como estas jeje";
 	char *format = s;
 
 	_printf(format);

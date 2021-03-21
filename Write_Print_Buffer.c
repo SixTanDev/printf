@@ -13,12 +13,12 @@ void WRITE(Buffer *buffer, char **format, int Length){
 
 		*(buffer->Pointer_Init) = *((*format)++);
 		*(++buffer->Pointer_Init) = '\0';
-		buffer->Length += ++Length;
+		buffer->Length++;
 
 		if (buffer->Pointer_Init == buffer->Pointer_End)
 			Print(buffer);
 
-		WRITE(buffer, format, Length);
+		WRITE(buffer, format, ++Length);
 	}
 
 }
@@ -27,12 +27,10 @@ void Print(Buffer *buffer){
 
 	if (buffer->Length)
 	{
-		if (buffer->Pointer_Init != buffer->Pointer_End)
-			write(1, buffer->Buffer, buffer->Length);
-		else
-			write(1, buffer->Buffer, SIZE_BUFER - 1);
+		write(1, buffer->Buffer, buffer->Length);
 
 		buffer->Pointer_Init = buffer->Buffer;
+		*(buffer->Buffer) = '\0';
 		buffer->Length = 0;
 	}
 	else

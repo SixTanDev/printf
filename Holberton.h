@@ -12,23 +12,41 @@
 #include <string.h>
 #include <limits.h>
 
-#define SIZE_BUFER 2
+#define SIZE_BUFER 1024
 
 
 /*
- * Macro.
+ * Macro 1:
  */
 
-#define WRITE_TO_LEETER(format)\
-	{		       \
-	if (buffer->Pointer_Init == buffer->Pointer_End)	\
+#define WRITE_TO_LEETER_FORMAT(format)\
+	{							\
+	if (buffer->Pointer_Init >= buffer->Pointer_End)	\
 		Print(buffer);					\
 								\
-        *(buffer->Pointer_Init) = *((*format)++);		\
-        *(++buffer->Pointer_Init) = '\0';			\
-        (buffer->Length)++;					\
+	*(buffer->Pointer_Init) = *((*format)++);		\
+	*(++buffer->Pointer_Init) = '\0';			\
+	(buffer->Length)++;					\
 								\
-        if (buffer->Pointer_Init == buffer->Pointer_End)	\
+	if (buffer->Pointer_Init >= buffer->Pointer_End)	\
+		Print(buffer);					\
+	}							\
+
+
+/*
+ * Macro 2:
+ */
+
+#define WRITE_TO_LEETER(Character)\
+	{		       \
+	if (buffer->Pointer_Init >= buffer->Pointer_End)	\
+		Print(buffer);					\
+								\
+	*(buffer->Pointer_Init) = Character;			\
+	*(++buffer->Pointer_Init) = '\0';			\
+	(buffer->Length)++;					\
+								\
+	if (buffer->Pointer_Init >= buffer->Pointer_End)	\
 		Print(buffer);					\
 	}							\
 
@@ -101,6 +119,7 @@ void Write_Init
 int _Printf
 (Write *write, Buffer *buffer, char **format, va_list List_Argument);
 
-void Type(char *);
+void Type
+(char *);
 
 #endif
