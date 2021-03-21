@@ -11,17 +11,19 @@ void (*RType(To_Funct *Array_Pointer, char **format))(Write *, Buffer *, va_list
 }
 
 
-void Type(char **format){
+void Type(Write *write, Buffer *buffer, char **format, va_list List_Argument){
 
 	To_Funct Array_Pointer[] = {
 
-		{"c", NULL},
-		{"s", NULL},
+		{"c", Print_Character},
+		{"s", Print_String},
 		{"di", NULL},
+		{"%", Print_Character_Porcentaje},
 		{NULL, NULL}
 
 	};
 	(void) (*Pointer_Function)(Write *, Buffer *, va_list);
 
 	Pointer_Function = (RType(Array_Pointe, format));
+	Pointer_Function(write, buffer, List_Argument);
 }
