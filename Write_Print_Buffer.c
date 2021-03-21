@@ -1,12 +1,23 @@
-#include "Holberton.h"
+#include "holberton.h"
 
 void Print(Buffer *buffer);
 
-void WRITE(Buffer *buffer, char **format, int Length){
+/**
+ * WRITE - Function that enters characters in the buffer.
+ * @buffer: Data structure that handles the 1024 buffer.
+ * @format: Double pointer to pointer that points to the string passed
+ *          to _printf.
+ * @Length: The total length written to the buffer by the function.
+ */
 
-	if ((!(**format)) || (**format == '%')){
+void WRITE(Buffer *buffer, char **format, int Length)
+{
+
+	if ((!(**format)) || (**format == '%'))
+	{
 		buffer->Length_Total += Length;
-	}else
+	}
+	else
 	{
 		if (buffer->Pointer_Init == buffer->Pointer_End)
 			Print(buffer);
@@ -23,7 +34,14 @@ void WRITE(Buffer *buffer, char **format, int Length){
 
 }
 
-void Print(Buffer *buffer){
+/**
+ * Print - This function prints what is in the buffer structure using
+ *         a single write function
+ * @buffer: Data structure that handles the 1024 buffer.
+ */
+
+void Print(Buffer *buffer)
+{
 
 	if (buffer->Length)
 	{
@@ -34,5 +52,5 @@ void Print(Buffer *buffer){
 		buffer->Length = 0;
 	}
 	else
-		return ;
+		return;
 }
