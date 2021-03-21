@@ -3,7 +3,7 @@
 void Buffer_Init(Buffer *buffer)
 {
 	buffer->Pointer_Init = buffer->Buffer;
-	buffer->Pointer_End = buffer->Buffer + SIZE_BUFER - 1;
+	buffer->Pointer_End = buffer->Buffer + SIZE_BUFER;
 	buffer->Length = buffer->Length_Total = 0;
 }
 
