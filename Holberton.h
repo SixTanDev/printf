@@ -27,6 +27,7 @@
 	*(buffer->Pointer_Init) = *((*format)++);		\
 	*(++buffer->Pointer_Init) = '\0';			\
 	(buffer->Length)++;					\
+	(buffer->Length_Total)++;				\
 								\
 	if (buffer->Pointer_Init >= buffer->Pointer_End)	\
 		Print(buffer);					\
@@ -45,6 +46,7 @@
 	*(buffer->Pointer_Init) = Character;			\
 	*(++buffer->Pointer_Init) = '\0';			\
 	(buffer->Length)++;					\
+	(buffer->Length_Total)++;				\
 								\
 	if (buffer->Pointer_Init >= buffer->Pointer_End)	\
 		Print(buffer);					\
@@ -121,5 +123,8 @@ int _Printf
 
 void Type
 (char *);
+
+int _printf
+(char *format, ...);
 
 #endif
