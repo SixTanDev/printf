@@ -72,15 +72,5 @@ int _printf(char *format, ...)
 
 	write.Print(&buffer);
 
-	printf("%d\n", buffer.Length);
-	printf("%d\n", buffer.Length_Total);
 	return (buffer.Length_Total);
-}
-
-int main(void)
-{
-	char s[] = "Hola como estas jeje";
-	char *format = s;
-
-	_printf(format);
 }
