@@ -107,24 +107,38 @@ typedef struct Flags_{
  */
 
 void Buffer_Init
-(Buffer *buffer);
+(Buffer *);
 
 void WRITE
-(Buffer *buffer, char **format, int Length);
+(Buffer *, char **, int);
 
 void Print
-(Buffer *buffe);
+(Buffer *);
 
 void Write_Init
-(Write *write, void (*Function_Pointer_Write)(Buffer *, char **, int), void (*Function_Pointer_Print)(Buffer *));
+(Write *, void (*Function_Pointer_Write)(Buffer *, char **, int), void (*Function_Pointer_Print)(Buffer *));
 
 int _Printf
-(Write *write, Buffer *buffer, char **format, va_list List_Argument);
+(Write *, Buffer *, char **, va_list);
 
 void Type
-(char *);
+(Write *, Buffer *, char **, va_list);
 
 int _printf
-(char *format, ...);
+(char *, ...);
+
+
+/*
+ *  Funciones del formato de printf
+ */
+
+void Print_String
+(Write *, Buffer *, va_list);
+
+void Print_Character_Porcentaje
+(Write *, Buffer *, va_list);
+
+void Print_Character_Character
+(Write *, Buffer *, va_list);
 
 #endif

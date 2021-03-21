@@ -26,6 +26,7 @@ void Print_String(Write *write, Buffer *buffer, va_list List_Argument)
 {
 
 	char *String = va_arg(List_Argument, char *);
+	write = NULL;
 
 	if (String && *String)
 		Write_String(write, buffer, String);
@@ -36,19 +37,14 @@ void Print_String(Write *write, Buffer *buffer, va_list List_Argument)
 void Print_Character_Porcentaje(Write *write, Buffer *buffer, va_list List_Argument)
 {
 	(void )List_Argument;
-	(void *)write;
 
 	WRITE_TO_LEETER('%');
 }
 
-void Print_Character_Porcentaje(Write *write, Buffer *buffer, va_list List_Argument)
+void Print_Character_Character(Write *write, Buffer *buffer, va_list List_Argument)
 {
 	char Solve_Character = (char)va_arg(List_Argument, int);
-	(void *)write;
 
 	if (Solve_Character)
 		WRITE_TO_LEETER(Solve_Character);
-	else
-		return ;
-
 }
