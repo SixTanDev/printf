@@ -125,7 +125,7 @@ void Type
 (Write *, Buffer *, char **, va_list);
 
 int _printf
-(char *, ...);
+(const char *, ...);
 
 
 /*

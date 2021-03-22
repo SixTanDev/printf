@@ -75,7 +75,7 @@ int _Printf
  * Return: Total number of Character.
  */
 
-int _printf(char *format, ...)
+int _printf(const char *format, ...)
 {
 /* Inicializamos variables */
 
@@ -89,7 +89,7 @@ int _printf(char *format, ...)
 	Buffer_Init(&buffer);
 
 	va_start(Lista_Arguments, format);
-	_Printf(&write, &buffer, &format, Lista_Arguments);
+	_Printf(&write, &buffer, (char **)&format, Lista_Arguments);
 	va_end(Lista_Arguments);
 
 	write.Print(&buffer);
