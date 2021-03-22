@@ -18,36 +18,39 @@
  * Macro 1:
  */
 
-#define WRITE_TO_LEETER_FORMAT(format)				\
-	{							\
-	if (buffer->Pointer_Init >= buffer->Pointer_End)	\
-		Print(buffer);					\
-								\
-	*(buffer->Pointer_Init) = *((*format)++);		\
-	*(++buffer->Pointer_Init) = '\0';			\
-	(buffer->Length_Total)++;				\
-								\
-	if (buffer->Pointer_Init >= buffer->Pointer_End)	\
-		Print(buffer);					\
-	}							\
-
+#define WRITE_TO_LEETER_FORMAT(format)					      \
+	{								      \
+		if (buffer->Pointer_Init == buffer->Pointer_End ||	      \
+		    ((size_t)(buffer->Pointer_Init - buffer->Buffer) == 500)) \
+			Print(buffer);					      \
+									      \
+		*(buffer->Pointer_Init) = *((*format)++);		      \
+		*(++buffer->Pointer_Init) = '\0';			      \
+		(buffer->Length_Total)++;				      \
+									      \
+		if (buffer->Pointer_Init == buffer->Pointer_End ||	      \
+		    ((size_t)(buffer->Pointer_Init - buffer->Buffer) == 500)) \
+			Print(buffer);					      \
+	}								      \
 
 /*
  * Macro 2:
  */
 
-#define WRITE_TO_LEETER(Character)		\
-	{							\
-	if (buffer->Pointer_Init >= buffer->Pointer_End)	\
-		Print(buffer);					\
-								\
-	*(buffer->Pointer_Init) = Character;			\
-	*(++buffer->Pointer_Init) = '\0';			\
-	(buffer->Length_Total)++;				\
-								\
-	if (buffer->Pointer_Init >= buffer->Pointer_End)	\
-		Print(buffer);					\
-	}							\
+#define WRITE_TO_LEETER(Character)					      \
+	{								      \
+		if (buffer->Pointer_Init == buffer->Pointer_End ||	      \
+		    ((size_t)(buffer->Pointer_Init - buffer->Buffer) == 500)) \
+			Print(buffer);					      \
+									      \
+		*(buffer->Pointer_Init) = Character;			      \
+		*(++buffer->Pointer_Init) = '\0';			      \
+		(buffer->Length_Total)++;				      \
+									      \
+		if (buffer->Pointer_Init == buffer->Pointer_End ||	      \
+		    ((size_t)(buffer->Pointer_Init - buffer->Buffer) == 500)) \
+			Print(buffer);					      \
+	}								      \
 
 
 /**
