@@ -1,25 +1,40 @@
-#include "Holberton.h"
+#include "holberton.h"
 
-/*
- * Isspace: Verifica si hay espacios o no.
+/**
+ * Isspace - checks if there is a space between the% and the
+ *          character that follows it.
+ * @format: Double pointer to pointer that points to the string passed
+ *          to _printf.
+ * @space: Total number of spaces.
+ * Return: Total number of spaces.
  */
 
-int Isspace(char **format, int space){
+int Isspace(char **format, int space)
+{
 
 	if (!(**format) || (**format != ' '))
 		return space;
-	else{
+	else
+	{
 		(*format)++;
 		return (Isspace(format, ++space));
 	}
 }
 
 
-/*
- * _Printf: Esta función me recorrerá el format y me analizará el carácter
+/**
+ * _Printf - Esta función me recorrerá el format y me analizará el carácter
  *          Porcetaje.  (Esta función es recursiva).
+ * @buffer: Data structure that handles the 1024 buffer.
+ * @format: Double pointer to pointer that points to the string passed
+ *          to _printf.
+ * @write: data structure that contains two function pointers, one to write
+ *         to the buffer and the other to print the buffer.
+ * @List_Argument: List of arguments passed to the _printf function.
  *
+ * Return: Total number of Character.
  */
+
 
 int _Printf
 (Write *write, Buffer *buffer, char **format, va_list List_Argument)
@@ -34,23 +49,30 @@ int _Printf
 			int Space = 0;
 
 			++(*format);
+
 			Space = Isspace(format, 0); /* verificamos si hay espacios entre el % y el Type=(c,d,i,s...)*/
 
-			if (!(**format) || (**format))
+			if (!(**format))
 			{
 				(*format) -= (++Space);          /* Regresa el format a apuntar al carater % */
 				WRITE_TO_LEETER_FORMAT(format);  /* Macro entontrada en Holberton.h*/
 
 			}
+			else
+				Type(write, buffer, format, List_Argument);
+
 		}
 		return (_Printf(write, buffer, format, List_Argument));
 	}
 }
 
-/*
- * _printf: Esta función me inicializará la estructura de datos adecuada
- *          Para el manejo del buffer y la estructura de datos
- *          que escribirá y imprimirá lo que hay en el bufer.
+/**
+ * _printf - This function will initialize me the proper data structure
+ *          For handling the buffer and data structure
+ *          that will write and print what's in the buffer.
+ * @format: Double pointer to pointer that points to the string passed
+ *          _print
+ * Return: Total number of Character.
  */
 
 int _printf(char *format, ...)
