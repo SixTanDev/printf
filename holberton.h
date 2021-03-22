@@ -138,7 +138,7 @@ void Print_String
 void Print_Character_Porcentaje
 (Write *, Buffer *, va_list);
 
-void Print_Character_Character
+void Print_Character
 (Write *, Buffer *, va_list);
 
 #endif
