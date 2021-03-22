@@ -78,6 +78,13 @@ void Print_Character_Character(Write *write, Buffer *buffer, va_list List_Arg)
 	char Solve_Character = (char)va_arg(List_Arg, int);
 
 	(void)write;
+
 	if (Solve_Character)
+	{
 		WRITE_TO_LEETER(Solve_Character);
+	}
+	else
+	{
+		(buffer->Length_Total)++;
+	}
 }

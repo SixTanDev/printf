@@ -57,4 +57,9 @@ void Type(Write *write, Buffer *buffer, char **format, va_list List_Argument)
 		Pointer_Function(write, buffer, List_Argument);
 		(*format)++;  /* Pasamos al siguiente caracter*/
 	}
+	else
+	{
+		WRITE_TO_LEETER('%');
+		WRITE_TO_LEETER_FORMAT(format);
+	}
 }
