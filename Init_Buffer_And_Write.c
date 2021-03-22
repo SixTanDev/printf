@@ -20,7 +20,8 @@ void Buffer_Init(Buffer *buffer)
  * @Ptr_Print: Pointer to funciotn
  */
 
-void Write_Init(Write *write, void (*Ptr_Write)(Buffer *, char **, int), void (*Ptr_Print)(Buffer *))
+void Write_Init(Write *write, void (*Ptr_Write)(Buffer *, char **, int),
+		void (*Ptr_Print)(Buffer *))
 {
 	write->Write = Ptr_Write;
 	write->Print = Ptr_Print;
