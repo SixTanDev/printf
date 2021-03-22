@@ -42,7 +42,7 @@ void Print_String(Write *write, Buffer *buffer, va_list List_Argument)
 
 	if (String && *String)
 		Write_String(write, buffer, String);
-	else
+	else if (!String)
 		Write_String(write, buffer, "(null)");
 }
 
