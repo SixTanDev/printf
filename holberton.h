@@ -94,13 +94,14 @@ typedef struct to_funct {
  * Structure Number 4:
  */
 
-typedef struct Flags_{
-
-	char *Number$;
-	char *Number;
-	char *Signal;
-
-}Flags;
+/*typedef struct Flags_{
+ *
+ *	char *Number$;
+ *	char *Number;
+ *	char *Signal;
+ *
+ *}Flags;
+ */
 
 /*
  * Declaration of the function:
