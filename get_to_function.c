@@ -52,9 +52,9 @@ void Type(Write *write, Buffer *buffer, char **format, va_list List_Argument)
 
 	Pointer_Function = RType(Array_Pointer, format);
 
-	(*format)++;  /* Pasamos al siguiente caracter*/
 	if (Pointer_Function)
 	{
 		Pointer_Function(write, buffer, List_Argument);
+		(*format)++;  /* Pasamos al siguiente caracter*/
 	}
 }
