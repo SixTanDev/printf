@@ -85,6 +85,6 @@ void Print_Character_Character(Write *write, Buffer *buffer, va_list List_Arg)
 	}
 	else
 	{
-		(buffer->Length_Total)++;
+		(buffer->Length_Total) += 2;
 	}
 }
