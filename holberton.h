@@ -161,4 +161,7 @@ void Print_Character_Porcentaje
 void Print_Character
 (Write *, Buffer *, va_list);
 
+void Print_Number
+(Write *write, Buffer *buffer, va_list List_Argument);
+
 #endif
