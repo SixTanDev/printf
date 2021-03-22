@@ -17,7 +17,6 @@ void Write_String(Write *write, Buffer *buffer, char *String)
 
 		*(buffer->Pointer_Init) = *(String++);
 		*(++buffer->Pointer_Init) = '\0';
-		(buffer->Length)++;
 		(buffer->Length_Total)++;
 
 		if (buffer->Pointer_Init >= buffer->Pointer_End)

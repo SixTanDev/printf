@@ -24,7 +24,6 @@ void WRITE(Buffer *buffer, char **format, int Length)
 
 		*(buffer->Pointer_Init) = *((*format)++);
 		*(++buffer->Pointer_Init) = '\0';
-		buffer->Length++;
 
 		if (buffer->Pointer_Init == buffer->Pointer_End)
 			Print(buffer);
@@ -43,13 +42,12 @@ void WRITE(Buffer *buffer, char **format, int Length)
 void Print(Buffer *buffer)
 {
 
-	if (buffer->Length)
+	if (buffer->Pointer_Init - buffer->Buffer)
 	{
-		write(1, buffer->Buffer, buffer->Length);
+		write(1, buffer->Buffer, buffer->Pointer_Init - buffer->Buffer);
 
 		buffer->Pointer_Init = buffer->Buffer;
 		*(buffer->Buffer) = '\0';
-		buffer->Length = 0;
 	}
 	else
 		return;

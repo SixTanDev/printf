@@ -25,7 +25,6 @@
 								\
 	*(buffer->Pointer_Init) = *((*format)++);		\
 	*(++buffer->Pointer_Init) = '\0';			\
-	(buffer->Length)++;					\
 	(buffer->Length_Total)++;				\
 								\
 	if (buffer->Pointer_Init >= buffer->Pointer_End)	\
@@ -44,7 +43,6 @@
 								\
 	*(buffer->Pointer_Init) = Character;			\
 	*(++buffer->Pointer_Init) = '\0';			\
-	(buffer->Length)++;					\
 	(buffer->Length_Total)++;				\
 								\
 	if (buffer->Pointer_Init >= buffer->Pointer_End)	\
@@ -58,9 +56,6 @@
  * @Buffer: Array containing the total length of the buffer.
  * @Pointer_Init: Pointer that points to the next free buffer position.
  * @Pointer_End: Points to the final position + 1 of the buffer.
- * @Length: Counts the characters printed in the buffer and varies depending
- *          on whether it is printed or not, Length is zero if buffer
- *          was print.
  * @Length_Total: Saves the total characters printed by the buffer.
  * Description: With this buffer we can solve point five of the
  *              holberton project that says that we have to create a
@@ -73,7 +68,6 @@ typedef struct Buffer_
 	char Buffer[SIZE_BUFER];
 	char *Pointer_Init;
 	char *Pointer_End;
-	int Length;
 	int Length_Total;
 
 } Buffer;

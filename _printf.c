@@ -121,6 +121,5 @@ int _printf(const char *format, ...)
 	va_end(Lista_Arguments);
 
 	write.Print(&buffer);
-
 	return (buffer.Length_Total);
 }
