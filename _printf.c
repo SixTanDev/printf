@@ -39,7 +39,9 @@ int Isspace(char **format, int space)
 int _Printf
 (Write *write, Buffer *buffer, char **format, va_list List_Argument)
 {
-	if (!(*format) || !(**format))
+	if (!(*format))
+		return (-1);
+	else if (!(**format))
 		return (buffer->Length_Total);
 	else
 	{
