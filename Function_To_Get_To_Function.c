@@ -65,7 +65,7 @@ void Print_Character_Porcentaje(Write *write, Buffer *buffer, va_list List_Arg)
 }
 
 /**
- * Print_Character_Character - Function that enters characters in the buffer.
+ * Print_Character - Function that enters characters in the buffer.
  *                              when the argument list is passed a Character.
  * @buffer: Data structure that handles the 1024 buffer.
  * @write: data structure that contains two function pointers, one to write
@@ -73,18 +73,11 @@ void Print_Character_Porcentaje(Write *write, Buffer *buffer, va_list List_Arg)
  * @List_Arg: List of arguments passed to the _printf function.
  */
 
-void Print_Character_Character(Write *write, Buffer *buffer, va_list List_Arg)
+void Print_Character(Write *write, Buffer *buffer, va_list List_Arg)
 {
 	char Solve_Character = (char)va_arg(List_Arg, int);
 
 	(void)write;
 
-	if (Solve_Character)
-	{
-		WRITE_TO_LEETER(Solve_Character);
-	}
-	else
-	{
-		(buffer->Length_Total)++;
-	}
+	WRITE_TO_LEETER(Solve_Character);
 }

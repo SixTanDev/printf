@@ -42,7 +42,7 @@ void Type(Write *write, Buffer *buffer, char **format, va_list List_Argument)
 
 	To_Funct Array_Pointer[] = {
 
-		{"c", Print_Character_Character},
+		{"c", Print_Character},
 		{"s", Print_String},
 		{"%", Print_Character_Porcentaje},
 		{NULL, NULL}
