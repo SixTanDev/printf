@@ -8,7 +8,6 @@
  * @String: The character string that is entered into the buffer.
  */
 
-
 void Write_String(Write *write, Buffer *buffer, char *String)
 {
 	if (*String)
@@ -62,6 +61,8 @@ void Print_Character_Porcentaje(Write *write, Buffer *buffer, va_list List_Arg)
 {
 	(void)List_Arg;
 
+	(void)write;
+
 	WRITE_TO_LEETER('%');
 }
 
@@ -78,6 +79,7 @@ void Print_Character_Character(Write *write, Buffer *buffer, va_list List_Arg)
 {
 	char Solve_Character = (char)va_arg(List_Arg, int);
 
+	(void)write;
 	if (Solve_Character)
 		WRITE_TO_LEETER(Solve_Character);
 }
