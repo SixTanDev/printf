@@ -1,6 +1,15 @@
-#include "Holberton.h"
+#include "holberton.h"
 
-void Write_String(Write *write,Buffer *buffer, char *String)
+/**
+ * Write_String - Function that enters characters in the buffer.
+ * @buffer: Data structure that handles the 1024 buffer.
+ * @write: data structure that contains two function pointers, one to write
+ *         to the buffer and the other to print the buffer.
+ * @String: The character string that is entered into the buffer.
+ */
+
+
+void Write_String(Write *write, Buffer *buffer, char *String)
 {
 	if (*String)
 	{
@@ -17,15 +26,21 @@ void Write_String(Write *write,Buffer *buffer, char *String)
 
 		Write_String(write, buffer, String);
 	}
-
-	return ;
 }
 
+/**
+ * Print_String - Function that enters characters in the buffer
+ *                when the argument list is passed a string.
+ * @buffer: Data structure that handles the 1024 buffer.
+ * @write: data structure that contains two function pointers, one to
+ *         write to the buffer and the other to print the buffer.
+ * @List_Argument: List of arguments passed to the _printf function.
+ */
 
 void Print_String(Write *write, Buffer *buffer, va_list List_Argument)
 {
-
 	char *String = va_arg(List_Argument, char *);
+
 	write = NULL;
 
 	if (String && *String)
@@ -34,16 +49,34 @@ void Print_String(Write *write, Buffer *buffer, va_list List_Argument)
 		Write_String(write, buffer, "(null)");
 }
 
-void Print_Character_Porcentaje(Write *write, Buffer *buffer, va_list List_Argument)
+/**
+ * Print_Character_Porcentaje - Function that enters characters in the buffer.
+ *                              when the argument list is passed a Porcentaje.
+ * @buffer: Data structure that handles the 1024 buffer.
+ * @write: data structure that contains two function pointers, one to
+ *         write to the buffer and the other to print the buffer.
+ * @List_Arg: List of arguments passed to the _printf function.
+ */
+
+void Print_Character_Porcentaje(Write *write, Buffer *buffer, va_list List_Arg)
 {
-	(void )List_Argument;
+	(void)List_Arg;
 
 	WRITE_TO_LEETER('%');
 }
 
-void Print_Character_Character(Write *write, Buffer *buffer, va_list List_Argument)
+/**
+ * Print_Character_Character - Function that enters characters in the buffer.
+ *                              when the argument list is passed a Character.
+ * @buffer: Data structure that handles the 1024 buffer.
+ * @write: data structure that contains two function pointers, one to write
+ *         to the buffer and the other to print the buffer.
+ * @List_Arg: List of arguments passed to the _printf function.
+ */
+
+void Print_Character_Character(Write *write, Buffer *buffer, va_list List_Arg)
 {
-	char Solve_Character = (char)va_arg(List_Argument, int);
+	char Solve_Character = (char)va_arg(List_Arg, int);
 
 	if (Solve_Character)
 		WRITE_TO_LEETER(Solve_Character);
