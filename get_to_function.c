@@ -45,7 +45,7 @@ void Type(Write *write, Buffer *buffer, char **format, va_list List_Argument)
 		{"c", Print_Character},
 		{"s", Print_String},
 		{"%", Print_Character_Porcentaje},
-/* 		{"di", Print_Number}, */
+ 		{"di", Print_Number},
 		{NULL, NULL}
 
 	};
