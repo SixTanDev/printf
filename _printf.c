@@ -40,7 +40,7 @@ int _Printf
 (Write *write, Buffer *buffer, char **format, va_list List_Argument)
 {
 	if (!(*format))
-		return (-1);
+		return (buffer->Length_Total = -1);
 	else if (!(**format))
 		return (buffer->Length_Total);
 	else
