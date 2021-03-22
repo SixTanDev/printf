@@ -15,7 +15,7 @@ void Write_String(Write *write, Buffer *buffer, char *String)
 		if (buffer->Pointer_Init >= buffer->Pointer_End)
 			write->Print(buffer);
 
-		*(buffer->Pointer_Init) = *(String)++;
+		*(buffer->Pointer_Init) = *(String++);
 		*(++buffer->Pointer_Init) = '\0';
 		(buffer->Length)++;
 		(buffer->Length_Total)++;
@@ -39,8 +39,6 @@ void Write_String(Write *write, Buffer *buffer, char *String)
 void Print_String(Write *write, Buffer *buffer, va_list List_Argument)
 {
 	char *String = va_arg(List_Argument, char *);
-
-	write = NULL;
 
 	if (String && *String)
 		Write_String(write, buffer, String);

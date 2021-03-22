@@ -56,7 +56,6 @@ int _Printf
 			{
 				(*format) -= (++Space);          /* Regresa el format a apuntar al carater % */
 				WRITE_TO_LEETER_FORMAT(format);  /* Macro entontrada en Holberton.h*/
-
 			}
 			else
 				Type(write, buffer, format, List_Argument);
@@ -79,10 +78,10 @@ int _printf(const char *format, ...)
 {
 /* Inicializamos variables */
 
-
 	Write write;
 	va_list Lista_Arguments;
 	Buffer buffer;
+
 /* Inicializamos las funciones de write y el Buffer */
 
 	Write_Init(&write, WRITE, Print);
