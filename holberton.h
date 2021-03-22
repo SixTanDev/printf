@@ -52,11 +52,23 @@
 	}							\
 
 
-/*
- * Structure 1:
+/**
+ * struct Buffer_ - We create the necessary structure to handle
+ *                  the buffer
+ * @Buffer: Array containing the total length of the buffer.
+ * @Pointer_Init: Pointer that points to the next free buffer position.
+ * @Pointer_End: Points to the final position + 1 of the buffer.
+ * @Length: Counts the characters printed in the buffer and varies depending
+ *          on whether it is printed or not, Length is zero if buffer
+ *          was print.
+ * @Length_Total: Saves the total characters printed by the buffer.
+ * Description: With this buffer we can solve point five of the
+ *              holberton project that says that we have to create a
+ *              1024 buffer and call write the least amount of times.
  */
 
-typedef struct Buffer_{
+typedef struct Buffer_
+{
 
 	char Buffer[SIZE_BUFER];
 	char *Pointer_Init;
@@ -64,36 +76,47 @@ typedef struct Buffer_{
 	int Length;
 	int Length_Total;
 
-}Buffer;
+} Buffer;
 
-/*
- * Structure Number 2:
+/**
+ * struct Write_ - We create the necessary structure to handle
+ *                 writing, over-writting and printing of the buffer.
+ * @Write: Pointer to the function to write to the buffer.
+ * @Print: Pointer to the function to print to the buffer
+ * Description: This structure controls the printing and writing of the buffer.
  */
 
-typedef struct Write_ {
+typedef struct Write_
+{
 
-        void (*Write)(Buffer *, char **, int);
-        void (*Print)(Buffer *);
+	void (*Write)(Buffer *, char **, int);
+	void (*Print)(Buffer *);
 
-}Write;
+} Write;
 
-
-/*
- * Estructura Number 3:
+/**
+ * struct to_funct - This script will serve to identify the corresponding
+ *                   function of% Type in format
+ * @Type: It will save the type of character that handles the _printf.
+ * @Pointer_Function: Function pointer that corresponds to the function
+ *                    that is assigned to Type
+ * Description: This structure handles the% Type to form, that is, it answers
+ *              the question, what function does% c,% d,% i etc. correspond to?
  */
 
-typedef struct to_funct {
+typedef struct to_funct
+{
 
 	char *Type;
 	void (*Pointer_Function)(Write *, Buffer *, va_list);
 
-}To_Funct;
+} To_Funct;
 
 /*
  * Structure Number 4:
- */
-
-/*typedef struct Flags_{
+ *
+ *
+ *typedef struct Flags_{
  *
  *	char *Number$;
  *	char *Number;
@@ -101,6 +124,8 @@ typedef struct to_funct {
  *
  *}Flags;
  */
+
+
 
 /*
  * Declaration of the function:
@@ -115,8 +140,9 @@ void WRITE
 void Print
 (Buffer *);
 
-void Write_Init
-(Write *, void (*Function_Pointer_Write)(Buffer *, char **, int), void (*Function_Pointer_Print)(Buffer *));
+void Write_Init(Write *,
+		void (*Function_Pointer_Write)(Buffer *, char **, int),
+		void (*Function_Pointer_Print)(Buffer *));
 
 int _Printf
 (Write *, Buffer *, char **, va_list);
