@@ -12,7 +12,7 @@
 #include <string.h>
 #include <limits.h>
 
-#define SIZE_BUFER 10
+#define SIZE_BUFER 1024
 
 /*
  * Macro 1:
