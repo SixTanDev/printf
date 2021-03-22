@@ -83,7 +83,8 @@ int Error_Format(char *format)
 {
 	if (!(format) || !(*format))
 		return (0);
-	else if ((*format) != '%' && (*format) != ' ')
+	else if (((*format) != '%' || (*(format + 1) == '%')) &&
+		 (*format) != ' ')
 		return (1);
 	else
 		return (Error_Format(++format));
