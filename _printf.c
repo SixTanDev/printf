@@ -13,7 +13,9 @@ int Isspace(char **format, int space)
 {
 
 	if (!(**format) || (**format != ' '))
-		return space;
+	{
+		return (space);
+	}
 	else
 	{
 		(*format)++;
@@ -36,28 +38,31 @@ int Isspace(char **format, int space)
  */
 
 
-int _Printf
-(Write *write, Buffer *buffer, char **format, va_list List_Argument)
+int _Printf(Write *write, Buffer *buffer, char **format, va_list List_Argument)
 {
-	if (!(*format))
-		return (buffer->Length_Total = -1);
-	else if (!(**format))
+	if (!(**format))
+	{
 		return (buffer->Length_Total);
+	}
 	else
 	{
 		write->Write(buffer, format, 0);
+
 		if (**format == '%')
 		{
 			int Space = 0;
 
 			++(*format);
 
-			Space = Isspace(format, 0); /* verificamos si hay espacios entre el % y el Type=(c,d,i,s...)*/
+/* verificamos si hay espacios entre el % y el Type=(c,d,i,s...)*/
+			Space = Isspace(format, 0);
 
 			if (!(**format))
 			{
-				(*format) -= (++Space);          /* Regresa el format a apuntar al carater % */
-				WRITE_TO_LEETER_FORMAT(format);  /* Macro entontrada en Holberton.h*/
+/* Regresa el format a apuntar al carater % */
+/* Macro entontrada en Holberton.h*/
+				(*format) -= (++Space);
+				WRITE_TO_LEETER_FORMAT(format);
 			}
 			else
 				Type(write, buffer, format, List_Argument);
@@ -65,6 +70,23 @@ int _Printf
 		}
 		return (_Printf(write, buffer, format, List_Argument));
 	}
+}
+
+/**
+ * Error_Format - Validate if the format was written in this way
+ *                "%    " or "%"
+ * @format: pointer to format .
+ * Return: 0 if the format is "%" or "%   ", 1 otherwase.
+ */
+
+int Error_Format(char *format)
+{
+	if (!(format) || !(*format))
+		return (0);
+	else if ((*format) != '%' && (*format) != ' ')
+		return (1);
+	else
+		return (Error_Format(++format));
 }
 
 /**
@@ -90,7 +112,11 @@ int _printf(const char *format, ...)
 	Buffer_Init(&buffer);
 
 	va_start(Lista_Arguments, format);
-	_Printf(&write, &buffer, (char **)&format, Lista_Arguments);
+	/* 0: si format es igual a "%   " or "%" */
+	if (Error_Format((char *)format))
+		_Printf(&write, &buffer, (char **)&format, Lista_Arguments);
+	else
+		buffer.Length_Total = -1;
 	va_end(Lista_Arguments);
 
 	write.Print(&buffer);
