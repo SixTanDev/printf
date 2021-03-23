@@ -42,8 +42,9 @@ git clone https://github.com/SixTanDev/printf
 The code is compiled with the ```gcc 4.8.4``` compiler using the ```-Wall -Werror -Wextra``` and ```-pedantic``` flags, therefore to get the executable file use the following command.
 
 >> gcc -Wall -Werror -Wextra -pedantic *.c -o printf
->> ./printf   to execute the program
- 
+
+>> ./printf                  to execute the program
+
 ### Code examples⌨️
 
 _Explain what these tests verify and why_
