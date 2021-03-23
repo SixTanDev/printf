@@ -1,9 +1,7 @@
 # _Printf function similar to the printf function that appears in language C
 
 It is a function where you can enter an unlimited number of arguments, the arguments can be of any type (the basic ones: char, int, float and double) with their respective pointers to each type.
-
-The first argument of the function is the one that will be sent to the stdout of the environment that called it, in this case it can be the screen or the file; if we are in an operating system like linux we use the operator **>, >>** to redirect the output of the stout.
-
+ 
 To improve the different types of data we apply the **%** character together with a **special character**, in the table below these special characters are shown. there may be spaces between the **%** character and the **special character**, such as.
 
 > _printf("hello %s this is the %s of lov%c\n", *Pointer_String, Array, Character);
