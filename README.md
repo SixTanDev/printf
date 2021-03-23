@@ -38,7 +38,7 @@ _C compiler_
 _Clone repository_
 
 ```
-git clone https://github.com/epg01/printf.git
+git clone https://github.com/SixTanDev/printf
 ```
 
 The code is compiled with the ```gcc 4.8.4``` compiler using the ```-Wall -Werror -Wextra``` and ```-pedantic``` flags, therefore to get the executable file use the following command.
